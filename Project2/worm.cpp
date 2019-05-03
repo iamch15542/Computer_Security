@@ -55,12 +55,12 @@ int main(int argc, char** argv) {
     int status = 0;
 
     // Send payload to h2
-    cmd(ssh_pre + " \'sudo mkdir -p " + h2 + "\'");
+    cmd(ssh_pre + " \'mkdir -p " + h2 + "\'");
     status = cmd("scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no Flooding_Attack " + remote + ":" + h2 + " > /dev/null");
     std::cout << "Sending payload to " << h2 << ": " << (status == 0 ? "Success\n" : "Failed\n");
 
     // Copy payload from h2 to h1
-    cmd(ssh_pre + " \'sudo mkdir -p " + h1 + "\'");
+    cmd(ssh_pre + " \'mkdir -p " + h1 + "\'");
     status = cmd(ssh_pre + " \'sudo cp " + h2 + payload + " " + h1 + "\' > /dev/null");
     std::cout << "Sending payload to " << h1 << ": " << (status == 0 ? "Success\n" : "Failed\n");
 
