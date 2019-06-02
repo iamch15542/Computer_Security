@@ -51,3 +51,10 @@
 7. [open(3) - Linux man page](https://linux.die.net/man/3/open)
 8. [read(2) - Linux man page](https://linux.die.net/man/2/read)
 9. [Linux系統調用之open(), close()](http://joe.is-programmer.com/posts/17463.html)
+
+## Task II-1: Lucky-pot
+
+這題真的蠻無聊的，一樣先把code弄出來看，然後你會看到
+```        for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
+                lucky[i] = (lucky[i] % 49) + 1;  // 1 ~ 49
+        }```
