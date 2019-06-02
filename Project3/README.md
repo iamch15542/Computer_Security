@@ -55,6 +55,8 @@
 ## Task II-1: Lucky-pot
 
 這題真的蠻無聊的，一樣先把code弄出來看，然後你會看到
-```        for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
-                lucky[i] = (lucky[i] % 49) + 1;  // 1 ~ 49
-        }```
+```        
+for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
+    lucky[i] = (lucky[i] % 49) + 1;  // 1 ~ 49
+}
+```
