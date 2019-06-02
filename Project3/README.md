@@ -32,7 +32,7 @@
 3. [rand(3) - Linux man page](https://linux.die.net/man/3/rand)
 4. [C語言中的RAND 函數產生的數值不變](https://zhidao.baidu.com/question/2053472265334017667.html)
 
-##Task I-3: Nasty-rules
+## Task I-3: Nasty-rules
 
    一開始先使用```vim nasty.c```將程式碼輸出來，注意```if (fd=open("password", O_RDONLY, 0400) < 0)```這段程式碼，會發現一件事情，```<```的優先度會比```=```還高，所以會是```fd = (open("password", O_RDONLY, 0400) < 0)```這樣，因此 fd 的值只會等於 0 或 1 ，又等於 1 的時候程式不會進行下去，因此fd = 0。
    
@@ -48,3 +48,6 @@
 4. [C Operator Precedence](https://en.cppreference.com/w/c/language/operator_precedence)
 5. [用 snprintf / asprintf 取代不安全的 sprintf](https://kheresy.wordpress.com/2010/01/28/%E7%94%A8-snprintf-asprintf-%E5%8F%96%E4%BB%A3%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84-sprintf/)
 6. [C formatting printf](http://www.c4learn.com/c-programming/c-formatting-printf/)
+7. [open(3) - Linux man page](https://linux.die.net/man/3/open)
+8. [read(2) - Linux man page](https://linux.die.net/man/2/read)
+9. [Linux系統調用之open(), close()](http://joe.is-programmer.com/posts/17463.html)
