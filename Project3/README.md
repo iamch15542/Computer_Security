@@ -60,3 +60,20 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
     lucky[i] = (lucky[i] % 49) + 1;  // 1 ~ 49
 }
 ```
+首先lucky是個char，而你給他int的數值，他會用ASCII做轉換，因此實際能輸入的ascii是從32開始，所以你只需要輸入32~49的ascii對應的字元就行了
+
+再來繼續把code往下看，你會看到
+```
+for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
+	for (j = 0; j < LUCKY_POT_LENGTH; ++j) {
+	    if (lucky[i] == submit[j]) {
+	    	match++;
+	    }
+	}
+}
+```
+你會發現，他只要有比對到就會把match的分數往上加，而不會發現是否已經比對過了，因此你只需要輸入6個相同的字元，然後對中其中一個lucky number，你就會獲得6分了，因此只需要在32~49的ascii對應的字元中選出一個然後輸入6次，開始刷，刷到中為止，就可以獲得flag!!!
+
+參考資料
+
+1.  [ASCII](https://zh.wikipedia.org/wiki/ASCII)
