@@ -91,7 +91,7 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
 
 之後使用 ```upx -d flagbin```來將flagbin解壓縮，再輸入```gdb flagbin```進入gdb的模式裡面。
 
-在gdb裡面可以輸入```disassemble main```來看memory的使用以及相對的東西，會出現![flagbin_pic1](/flagbin_pic1)
+在gdb裡面可以輸入```disassemble main```來看memory的使用以及相對的東西，會出現![flagbin_pic1](/flagbin_pic1.png)
 
 參考資料
 
