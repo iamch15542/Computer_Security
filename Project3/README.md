@@ -92,11 +92,24 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
 之後使用 ```upx -d flagbin```來將flagbin解壓縮，再輸入```gdb flagbin```進入gdb的模式裡面。
 
 在gdb裡面可以輸入```disassemble main```來看memory的使用以及相對的東西，會出現![flagbin_pic1](flagbin_pic1.png)
-這樣的結果，之後可以在輸入```break *main```來在最一開始就設置breakpoint。設置好 breakpoint 後，就可以輸入r 或是run來執行了，因為有設置breakpoint，所以一開始就會中斷，可以輸入```ni```來進行下一步，當到malloc之後，就可以每輸入一次```ni```後，接著輸入```p (char*)$rax```來輸出$rax的字，因此就會獲得這樣的結果![flagbin_pic2](flagbin_pic2.png)![flagbin_pic3](flagbin_pic3.png)最終成功獲得flag!!!
+這樣的結果，之後可以在輸入```break *main```來在最一開始就設置breakpoint。設置好 breakpoint 後，就可以輸入r 或是run來執行了，因為有設置breakpoint，所以一開始就會中斷，可以輸入```ni```來進行下一步，當到malloc之後，就可以每輸入一次```ni```後，接著輸入```p (char*)$rax```來輸出$rax的字，因此就會獲得這樣的結果![flagbin_pic2](flagbin_pic2.png =400x800)![flagbin_pic3 =400x800](flagbin_pic3.png =400x800)最終成功獲得flag!!!
 
 參考資料
 
 1.  [GDB Installation on Mac OS X](https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html)
-2. [How can I get information about a binary file that won't execute?](https://serverfault.com/questions/730922/how-can-i-get-information-about-a-binary-file-that-wont-execute)
+2. [Hacktober CTF 2018 – Binary Analysis – Larry](https://veteransec.com/2018/10/19/hacktober-ctf-2018-binary-analysis-larry/)
+3. [GDB下查看内存命令(x命令)](https://blog.csdn.net/allenlinrui/article/details/5964046)
+4. [Reversing and Cracking first simple Program - bin 0x05](https://www.youtube.com/watch?v=VroEiMOJPm8)
+5. [Simple Tools and Techniques for Reversing a binary - bin 0x06](https://www.youtube.com/watch?v=3NTXFUxcKPc)
+
+以下是有看過，參考度較低
+
+1. [How can I get information about a binary file that won't execute?](https://serverfault.com/questions/730922/how-can-i-get-information-about-a-binary-file-that-wont-execute)
+2. [How to view a binary file?](https://unix.stackexchange.com/questions/282215/how-to-view-a-binary-file)
+3. [Debugging with GDB （入門篇）](http://www.study-area.org/goldencat/debug.htm)
+4. [C編譯: 使用gdb調適](https://www.cnblogs.com/vamei/archive/2013/04/03/2998652.html)
+5. [顯示檔案類型（file 指令）](https://www.ibm.com/support/knowledgecenter/zh-tw/ssw_aix_72/com.ibm.aix.osdevice/HT_cmd_display_filetypes.htm)
+6. [file](https://www.mkssoftware.com/docs/man1/file.1.asp)
+
 
 ## Task II-3: Random-pass-auth
