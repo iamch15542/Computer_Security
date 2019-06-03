@@ -65,11 +65,18 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
 再來繼續把code往下看，你會看到
 ```
 for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
-	for (j = 0; j < LUCKY_POT_LENGTH; ++j) {
-	    if (lucky[i] == submit[j]) {
-	    	match++;
-	    }
-	}
+    printf("%d ", lucky[i]);
+}
+```
+會發現它輸出的數字是ascii，因為她是char卻用%d來做輸出
+再來則是
+```
+for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
+    for (j = 0; j < LUCKY_POT_LENGTH; ++j) {
+        if (lucky[i] == submit[j]) {
+            match++;
+        }
+    }
 }
 ```
 你會發現，他只要有比對到就會把match的分數往上加，而不會發現是否已經比對過了，因此你只需要輸入6個相同的字元，然後對中其中一個lucky number，你就會獲得6分了，因此只需要在32~49的ascii對應的字元中選出一個然後輸入6次，開始刷，刷到中為止，就可以獲得flag!!!
@@ -77,3 +84,18 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
 參考資料
 
 1.  [ASCII](https://zh.wikipedia.org/wiki/ASCII)
+
+## Task II-2: Flagbin
+
+一開始先從 [flagbin](http://nctuics.louie.lu:20008/flagbin) 下載flagbin的檔案，然後使用```chmod +x flagbin```來提高權限執行，執行後會看到```I'll malloc() and strncpy the flag to here```不過不太重要就是了。
+
+之後使用 ```upx -d flagbin```來將flagbin解壓縮，再輸入```gdb flagbin```進入gdb的模式裡面。
+
+在gdb裡面可以輸入```disassemble main```來看memory的使用以及相對的東西，會出現![flagbin_pic1](/flagbin_pic1)
+
+參考資料
+
+1.  [GDB Installation on Mac OS X](https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html)
+2. [How can I get information about a binary file that won't execute?](https://serverfault.com/questions/730922/how-can-i-get-information-about-a-binary-file-that-wont-execute)
+
+## Task II-3: Random-pass-auth
