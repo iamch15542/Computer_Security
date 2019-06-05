@@ -113,3 +113,33 @@ for (i = 0; i < LUCKY_POT_LENGTH; ++i) {
 
 
 ## Task II-3: Random-pass-auth
+
+一開始找程式碼的錯誤找很久，但都找不到會出錯的地方。先簡單解釋程式碼在做什麼。首先，程式碼會從/dev/urandom隨機生成兩個數字，第一個當作暫時檔案的名稱，第二個則當作密碼，然後，根據你輸入的數字來比對密碼是否相同。
+
+思考過後就會發現，基本上要猜中密碼是不太可能的，比較有可能的就是讓密碼能自己設置或是變成0而已。但要自己設置就題目來看也不太可能，因此就要想辦法讓密碼讀取的時候為0，而方法便是讓系統無法寫入任何東西進去檔案，因此讀取的時候什麼都讀不到，便會是0了。
+
+要讓系統無法寫入任何東西的話，就需要```ulimit```的指令，因此我們可以輸入```$ ulimit -f 0```，```-f size```表示說```-f size：此shell可以創建的最大文件容量（一般可能設置為2GB）單位為KB```，因為我們限制系統能寫入的大小為0KB，所以該檔案不會被寫入任何資料，這樣就能達成我們追求的```讀不到任何資料```而讓密碼為0的要求。
+
+
+
+
+參考資料
+
+1. [pwnable.kr-otp](https://r00tnb.github.io/2018/02/26/pwnable.kr-otp/)
+2. [Pwnable.kr 提示之 otp 篇](https://www.jianshu.com/p/73c030cb12e0)
+3. [JackoQm/CTF-Writeups](https://github.com/JackoQm/CTF-Writeups/tree/master/Pwnable.kr/Rookiss/otp)
+4. [linux ulimit命令](http://q248269673.pixnet.net/blog/post/66596238-linux-ulimit%E5%91%BD%E4%BB%A4)
+
+無用參考資料，僅學習知識。
+
+1. [在Xcode中為main函數設置輸入參數](https://blog.csdn.net/wowfly98/article/details/51733039)
+2. [fwrite()](http://tw.gitbook.net/c_standard_library/c_function_fwrite.html)
+3. [fread()](http://tw.gitbook.net/c_standard_library/c_function_fread.html)
+4. [read(3) - Linux man page](https://linux.die.net/man/3/read)
+5. [strtoul()](http://tw.gitbook.net/c_standard_library/c_function_strtoul.html)
+6. [C語言判斷文件夾或者文件是否存在的方法](https://blog.csdn.net/xhhjin/article/details/6369336)
+7. [How to use read function to read from terminal input (stdin)?](https://stackoverflow.com/questions/27069640/how-to-use-read-function-to-read-from-terminal-input-stdin)
+8. [Linux编程下open()函数的用法](https://blog.csdn.net/weibo1230123/article/details/79036611)
+9. [Linux中open、write、read、close系統調用](https://blog.csdn.net/MOON5555/article/details/78411514)
+10. [C語言open,read,write函數,及文件讀寫](https://blog.csdn.net/ly52352148/article/details/52873819)
+11. [Using read() system call for ints in C](https://stackoverflow.com/questions/14550930/using-read-system-call-for-ints-in-c)
