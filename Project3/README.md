@@ -133,7 +133,6 @@ ulimit -f 0 && python3 -c "import os; os.system('./rpa 0')"
 ```
 ![rpa_pic3](rpa_pic3.png)
 
-
 參考資料
 
 1. [pwnable.kr-otp](https://r00tnb.github.io/2018/02/26/pwnable.kr-otp/)
